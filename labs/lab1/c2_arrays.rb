@@ -10,7 +10,7 @@
 # Expected: first_and_last([1, 2, 3, 4]) => [1, 4]
 def first_and_last(arr)
   # TODO: Use array indexing with [0] and [-1]
-  return [arr[0], arr[-1]]
+  [arr[0], arr[-1]]
 end
 
 # Exercise 2: Array methods
@@ -18,8 +18,8 @@ end
 # Expected: add_element([1, 2, 3], 4) => [1, 2, 3, 4]
 def add_element(arr, element)
   # TODO: Use .push or << operator (modify and return the array)
-  arr << element;
-  return arr;
+  arr << element
+  return arr
 end
 
 # Exercise 3: Array iteration
@@ -58,7 +58,7 @@ end
 # Expected: sort_desc([3, 1, 4, 1, 5]) => [5, 4, 3, 1, 1]
 def sort_desc(arr)
   # TODO: Use .sort with .reverse or .sort_by
-  arr.sort.reverse();
+  arr.sort.reverse
 end
 
 # Exercise 8: Array range

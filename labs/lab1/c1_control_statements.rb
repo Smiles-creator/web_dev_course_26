@@ -15,6 +15,7 @@ def check_number(num)
   elsif num < 0
     "negative"
   else "zero"
+  end
 end
 
 # Exercise 2: Ternary operator
@@ -27,10 +28,7 @@ end
 # Exercise 3: Unless statement (Ruby-specific)
 # Return "access granted" unless age is less than 18
 # Expected: check_access(20) => "access granted"
-# Expected: check_access(15) => "access denied"
-def check_access(age)
-  # TODO: Use unless statement (opposite of if)
- 
+# Expected: check_access(15) => "access denied" 
 def check_access(age)
   return "access granted" unless age < 18
   "access denied"
@@ -101,7 +99,7 @@ end
 # Expected: process_numbers([5, 8, 12, 25, 3, 15]) => [5, 8, 12]
 def process_numbers(arr)
   # TODO: Use break to stop, next to skip
-  res = []
+  result = []
  
   for value in arr
     break if value >= 20     
@@ -111,7 +109,6 @@ def process_numbers(arr)
 
   result
 end
-end
 
 # Exercise 9: Modifier if/unless
 # Return "big" if number > 100, otherwise return the number itself
@@ -119,7 +116,6 @@ end
 # Expected: check_size(150) => "big"
 # Expected: check_size(50) => 50
 def check_size(num)
-(num)
   return "big" if num > 100
   return num
 end
