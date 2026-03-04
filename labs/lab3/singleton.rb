@@ -6,13 +6,19 @@
 # Run this file with: ruby singleton.rb
 
 # Exercise 1: Implement a basic Singleton
-# Create a Logger class that can only have one instance
+# Create a Logger class that can only have one instanc
 # Hint: Use class variables and private constructor
 
 class Logger
   # TODO: Make the constructor private using private_class_method
+  private_class_method :new
   # TODO: Create a class variable @@instance
+  @@instance = nil
   # TODO: Implement self.instance method that returns the single instance
+  def self.instance 
+    @@instance ||= new
+  end  
+
   
   def initialize
     @logs = []
@@ -39,7 +45,7 @@ require 'singleton'
 
 class Configuration
   # TODO: Include the Singleton module
-  
+  include Singleton
   attr_accessor :app_name, :version, :debug_mode
   
   def initialize
@@ -62,8 +68,15 @@ end
 
 class DatabaseConnection
   # TODO: Implement Singleton pattern (manually or with module)
-  # TODO: Add a @connected attribute to track connection state
   
+  private_class_method :new
+  @@instance = nil
+
+  def self.instance
+    @@instance ||= new
+  end
+# TODO: Add a @connected attribute to track connection state
+
   def initialize
     @connected = false
     @connection_string = nil
@@ -72,13 +85,16 @@ class DatabaseConnection
   def connect(connection_string)
     # TODO: Set @connected to true and save connection_string
     # TODO: Return "Connected to #{connection_string}"
-    nil
+    @connected = true
+    @connection_string = connection_string
+    "Connected to #{connection_string}"
   end
   
   def disconnect
     # TODO: Set @connected to false
     # TODO: Return "Disconnected"
-    nil
+    @connected = false
+    "Disconnected"
   end
   
   def connected?
@@ -86,9 +102,13 @@ class DatabaseConnection
   end
   
   def execute_query(query)
-    # TODO: Return "Executing: #{query}" if connected
+    # TODO: Return "Executing: #{query}"
+     if @connected
+      "Executing: #{query}"
     # TODO: Return "Not connected to database" if not connected
-    nil
+    else 
+      "Not connected to database"
+    end
   end
 end
 
